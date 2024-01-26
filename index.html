@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom-trained AI Chatbot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+        }
+        .chat-container {
+            margin-top: 50px;
+        }
+        .output {
+            background-color: #fff;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .flag-btn {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container chat-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-12">
+                    <h2 class="card-title text-center mb-4">Custom-trained AI Chatbot</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card" style="min-height: 600px;">
+                            <div class="card-body">
+                                <textarea class="form-control" id="userInput" rows="17" placeholder="Enter your Job Here, Example:&#10;
+- Rekap Catatan Retro Engineering Sidebar 
+- Rekap Catatan Retro Engineering Sidebar
+- Retrospective Engineering Part II
+- Retrospective Engineering
+- feat(permissions): Add permission middleware for manage org
+- fix(auth): Add position validation on login verify
+- trace issue sidebar down pada tanggal 02 januari 2024
+- Daily Check-In Chapter Back-End 1 Januari 2024
+- Daily Sidebar 2 Januari 2024
+- Peer code review fix(document): order by tanggal nomor
+- Setup Deploy prod 02-01-2023 Website V1
+- Tracing Tiket Melakukan Ujicoba Flow Transaksi Naskah GTK
+- Up to production Sidebar Web V1 02-01-2023
+
+                                "></textarea>
+                                <button class="btn btn-primary btn-block mt-3" onclick="validateInput()">Summarize AI</button>
+                                <button class="btn btn-secondary btn-block" onclick="clearText()">Clear</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card" style="min-height: 600px;">
+                            <div class="card-body">
+                                <div class="output" id="chatOutput">Output will appear here...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-5  ">
+                        <div class="card">
+                            <h2 class="card-title text-center mb-4 mt-3">Testimoni</h2>
+                            <div id="accordion">
+                                <div class="card">
+                                  <div class="card-header" id="headingOne">
+                                    <h5 class="mb-0">
+                                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        Fajar Hikmal #1
+                                      </button>
+                                    </h5>
+                                  </div>
+                                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>4.1. Output</p>
+                                            <ul>
+                                                <li>Peningkatan dan Perbaikan Sistem: Kegiatan mencakup perbaikan fitur penting sistem, penambahan fungsionalitas baru, dan penyesuaian fitur yang ada untuk memperbaiki pengalaman pengguna. Misalnya, ada kegiatan untuk meningkatkan jadwal sistem agar berjalan lebih efisien dan memodifikasi atribut dokumen untuk memenuhi kebutuhan pengguna.</li>
+                                                <li>Kolaborasi Tim dan Perencanaan: Meliputi diskusi tim untuk menyusun strategi kolaborasi, merencanakan pengujian otomatisasi, dan berbagi pengetahuan tentang solusi teknis. Ada juga pertemuan reguler untuk koordinasi proyek dan sprint planning.</li>
+                                                <li>Penelitian dan Pengembangan: Termasuk kegiatan eksplorasi fitur baru pada platform dan alat pengembangan, serta penelitian untuk meningkatkan kinerja dan stabilitas sistem.</li>
+                                            </ul>
+                                            <p>4.2. Kendala</p>    
+                                            <ul>
+                                                <li>Tantangan Teknis: Menghadapi masalah seperti analisis data yang tidak konsisten dan perlu mencari solusi untuk masalah teknis yang kompleks.</li>
+                                                <li>Koordinasi dalam Tim: Mengelola komunikasi efektif dan pembagian tugas di antara anggota tim, termasuk mengatur prioritas dan menangani umpan balik.</li>
+                                            </ul>
+                                            
+                                            <p>4.3. Solusi</p>
+                                            <ul>
+                                                <li>Pembaruan dan Perbaikan Berkala: Termasuk kegiatan untuk meningkatkan proses pemeriksaan kode tim, serta pembaruan dan perbaikan berkala untuk memastikan kualitas dan performa sistem yang tinggi.</li>
+                                                <li>Pengelolaan Tugas Tim: Menggunakan sesi perencanaan dan grooming untuk memastikan tugas dibagi secara adil dan efisien, serta mengadakan diskusi reguler untuk memastikan semua anggota tim selaras.</li>
+                                                <li>Adaptasi dengan Teknologi Baru: Implementasi metode baru dan teknologi untuk memperkuat sistem, seperti menambahkan panduan dinamis di pusat bantuan atau mengoptimalkan penggunaan cache untuk pengumuman.</li>
+                                            </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <p>
+    
+    
+    
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <hr>
+                    <div class="footer">
+                        <p><a href="https://github.com/fajarhikmal214/simple-summarizer-ai/issues">Send a Feedback</a></p>
+                        <p>Summarize AI | <a href="https://github.com/fajarhikmal214">@fajarhikmal214</a> | Built with ChatGPT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        function submit() {
+            const data = document.getElementById('userInput').value;
+            document.getElementById('chatOutput').textContent = 'Processing...';
+            
+            //  Use axios to send a POST request
+            axios.post('/generate', { data })
+            .then(function (response) {
+                // change response.data.reply as html tag
+                document.getElementById('chatOutput').innerHTML = response.data.reply;
+            })
+            .catch(function (error) {
+                // Handle error
+                console.error('Error making the request: ', error);
+                document.getElementById('chatOutput').textContent = 'An error occurred. Please try again later.';
+            });
+        }
+
+        function clearText() {
+            document.getElementById('userInput').value = '';
+            document.getElementById('chatOutput').textContent = 'Output will appear here...';
+        }
+
+        function validateInput() {
+            const userInput = document.getElementById('userInput').value;
+            
+            if (userInput.trim() === '') {
+                alert('Input is required!');
+                return false;
+            }
+            
+            submit();
+        }
+    </script>
+</body>
+</html>
