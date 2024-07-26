@@ -42,9 +42,11 @@ app.post('/generate', async (req, res) => {
     // Add custom knowledge base logic and combine with user content
     const customKnowledge = `
         Hei. Saya punya beberapa kegiatan yang dilakukan selama 1 bulan penuh dalam pekerjaan dan ada perintah untuk membuat kesimpulan dari kegiatan yang dilakukan selama dalam periode bulan tersebut. \n
-        Ada beberapa poin seperti 1. Output; 2.Kendala; dan 3. Solusi dan kategorikan berdasarkan setiap pointnya. Berikan setidaknya 3 paragraf untuk setiap poinnya menggunakan list. \n \n
+        Ada 2 poin Kendala dan Solusi yang saling berpasangan dan kategorikan berdasarkan setiap pointnya. Berikan setidaknya 3 pasangan kendala dan solusi untuk setiap poinnya menggunakan list. \n \n
         
         MENGGUNAKAN BAHASA BAHU ADALAH WAJIB \n \n
+
+        BERIKAN PARAGRAF YANG PANJANG SETIAP POINNYA \n \n
 
         Dan berikan perspektif satu orang (yang membuat laporan) bukan sebagai tim. \n \n
         
@@ -52,23 +54,23 @@ app.post('/generate', async (req, res) => {
         
         Dan ubahlah nama kegiatan yang kaku (seperti contoh langsung) menjadi naratif yang baik tanpa menggunakan simbol seperti buka kurung. \n
 
-        Berikan response dalam bentuk paragraf HTML yang rapi tanpa tabel agar mudah ditampilkan ke user sebagai HTML. \n \n 
+        Berikan response dalam bentuk paragraf HTML yang rapi tanpa tabel agar mudah ditampilkan ke user sebagai HTML. \n \n
+        
+        RESPONSE DARI HTML NYA HARUS LANGSUNG DARI POINT HEADER, OL dan LI SAJA. TANPA TAG HTML DAN BODY \n \n
+
+        JANGAN MENGGUNAKAN LI MARKER, LANGSUNG OL Kendala 1, LI Solusi. JANGAN MEMAKAI BR DAN SPACE TERLALU BANYAK \n
 
         Saya punya contohnya \n \n
 
-        Output : \n
-        - Peningkatan dan Perbaikan Sistem: Kegiatan mencakup perbaikan fitur penting sistem, penambahan fungsionalitas baru, dan penyesuaian fitur yang ada untuk memperbaiki pengalaman pengguna. Misalnya, ada kegiatan untuk meningkatkan jadwal sistem agar berjalan lebih efisien dan memodifikasi atribut dokumen untuk memenuhi kebutuhan pengguna. \n
-        - Kolaborasi Tim dan Perencanaan: Meliputi diskusi tim untuk menyusun strategi kolaborasi, merencanakan pengujian otomatisasi, dan berbagi pengetahuan tentang solusi teknis. Ada juga pertemuan reguler untuk koordinasi proyek dan sprint planning. \n
-        - Penelitian dan Pengembangan: Termasuk kegiatan eksplorasi fitur baru pada platform dan alat pengembangan, serta penelitian untuk meningkatkan kinerja dan stabilitas sistem. \n
-
-        Kendala : \n
+        Kendala 1 : \n
         - Tantangan Teknis: Menghadapi masalah seperti analisis data yang tidak konsisten dan perlu mencari solusi untuk masalah teknis yang kompleks. \n
-        - Koordinasi dalam Tim: Mengelola komunikasi efektif dan pembagian tugas di antara anggota tim, termasuk mengatur prioritas dan menangani umpan balik. \n
-
         Solusi : \n
         - Pembaruan dan Perbaikan Berkala: Termasuk kegiatan untuk meningkatkan proses pemeriksaan kode tim, serta pembaruan dan perbaikan berkala untuk memastikan kualitas dan performa sistem yang tinggi. \n
+
+        Kendala 2 : \n
+        - Koordinasi dalam Tim: Mengelola komunikasi efektif dan pembagian tugas di antara anggota tim, termasuk mengatur prioritas dan menangani umpan balik. \n
+        Solusi : \n
         - Pengelolaan Tugas Tim: Menggunakan sesi perencanaan dan grooming untuk memastikan tugas dibagi secara adil dan efisien, serta mengadakan diskusi reguler untuk memastikan semua anggota tim selaras. \n
-        - Adaptasi dengan Teknologi Baru: Implementasi metode baru dan teknologi untuk memperkuat sistem, seperti menambahkan panduan dinamis di pusat bantuan atau mengoptimalkan penggunaan cache untuk pengumuman. \n \n
 
         Anda dapat mengikuti format seperti itu. \n
 
@@ -93,6 +95,6 @@ app.post('/generate', async (req, res) => {
 });
   
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+app.listen(5000, () => {
+  console.log('Server is running on port 5000');
 });
